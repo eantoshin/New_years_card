@@ -1,0 +1,38 @@
+<%- include ../../common/modules/loader.ejs -%>
+
+<section id="main" class="main-page__wrapper">
+    <%- include ../assets/images/bg.svg -%>
+
+    <%- include ../modules/handle-prompt-cat.ejs -%>
+
+    <div class="main-page__header">
+        <div class="main-logo">
+            <a href="https://tiburon-research.ru/" class="main-logo__link" target="_blank" onclick="ym(91717882,'reachGoal','logo'); return true;">
+                <img src="../assets/images/main/logo.svg" alt="Tiburon research">
+            </a>
+        </div>
+
+        <div class="plug"></div>
+
+        <div class="main-page__sounds">
+            <audio id="flames-sound" src="" autoplay loop></audio>
+            <audio id="playlist-sounds" src="" autoplay></audio>
+        </div>
+    </div>
+
+    <div class="main-page__progress-bar main-page__progress-bar_hide">
+        <div class="main-page__progress-bar-content">
+            <%- include ../modules/progress-bar.ejs -%>
+        </div>
+    </div>
+    <div class="main-page__paints main-page__paints_hide">
+        <div class="main-page__paints-content">
+            <%- include ../modules/paints.ejs -%>
+        </div>
+    </div>
+
+    <%- include ../modules/footer.ejs -%>
+
+    <%- include ../modules/modal-greeting.ejs -%>
+    <%- include ../modules/modal-question-songs.ejs -%>
+</section>

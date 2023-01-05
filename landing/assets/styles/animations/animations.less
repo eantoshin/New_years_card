@@ -1,0 +1,22 @@
+.interactive-element-hover {
+    opacity: 0;
+
+    @media @desktop {
+
+        &.hover {
+            opacity: 1;
+
+            cursor: pointer !important;
+        }
+    }
+}
+
+.interactive-element-hidden {
+    opacity: 0;
+}
+
+.final-element-hidden {
+    opacity: 0;
+
+    pointer-events: none;
+}

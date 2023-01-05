@@ -1,0 +1,116 @@
+@import './base/variables';
+@import './fonts/fonts';
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+
+    user-select: none;
+
+    ::selection {
+        background: @selectionColor;
+
+        color: @white;
+    }
+
+    &:before,
+    &:after {
+        box-sizing: border-box;
+    }
+}
+
+html {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 0;
+}
+
+body {
+    overflow: hidden;
+
+    height: 100vh;
+
+    color: @black;
+    font-size: 16px;
+    font-weight: 700;
+    font-style: normal;
+
+    font-family: @mainSerifFont;
+
+    line-height: 24px;
+
+    -webkit-font-smoothing: antialiased;
+}
+
+.h1,
+h1 {
+    font-weight: 700;
+    font-style: normal;
+    line-height: 72px;
+
+    @media @mobile {
+        font-size: 40px;
+        line-height: 48px;
+    }
+}
+
+.h2,
+h2 {
+    font-size: 40px;
+    font-weight: 600;
+    font-family: @mainSerifFont;
+    line-height: 48px;
+
+    @media @mobile {
+        font-size: 32px;
+        line-height: 40px;
+    }
+}
+
+.h3,
+h3 {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 32px;
+
+    @media @mobile {
+        font-size: 16px;
+        line-height: 24px;
+    }
+}
+
+button,
+.shark-image,
+.reload-icon,
+.share-icon,
+.sounds-icon,
+.back-to-the-room,
+.tooltip-cross {
+    @media @desktop {
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}
+
+.text {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 32px;
+}
+
+.sharpen {
+    transform: translate3d(0, 0, 0);
+}
+
+@import './layout/index';

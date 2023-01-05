@@ -1,0 +1,27 @@
+.mobile-logo {
+    display: none;
+
+    width: 212px;
+    height: 85px;
+
+    @media @tablet {
+        display: block;
+
+        width: 140px;
+    }
+
+    @media @mobile {
+        width: 94px;
+        height: 38px;
+    }
+
+    @media @mobileLarge and @mobileLargeHeight {
+        width: 212px;
+        height: 85px;
+    }
+
+    @media @mobileSmall {
+        width: 95px;
+        height: 38px;
+    }
+}

@@ -1,0 +1,198 @@
+.iconsWrapperTooltipMixin {
+    visibility: hidden;
+    position: absolute;
+    top: -35px;
+    left: 50%;
+
+    width: 170px;
+
+    padding: 10px 0;
+
+    border-radius: 4px;
+
+    background: @button;
+
+    opacity: 0;
+
+    color: @white;
+    font-size: 14px;
+
+    line-height: 15px;
+    text-align: center;
+
+    transform: translateX(-50%) translateY(-10px);
+
+    transition: .5s;
+
+    &:before {
+        content: '';
+
+        position: absolute;
+        z-index: -1;
+        bottom: -8px;
+        left: 50%;
+
+        width: 10px;
+        height: 10px;
+
+        background: @button;
+
+        transform: rotate(45deg) translateX(-50%);
+    }
+}
+
+.footer {
+    display: flex;
+
+    position: absolute;
+
+    bottom: 24px;
+
+    justify-content: space-evenly;
+
+    width: 100%;
+
+    max-height: 193px;
+
+    transition: max-height .5s ease-out;
+
+    pointer-events: none;
+
+    &.tooltip-wrapper__hide {
+        max-height: 0;
+    }
+
+    @media @mobile {
+        bottom: 0;
+
+        flex-direction: column-reverse;
+
+        max-height: unset;
+
+        padding: 0 8px 23px;
+    }
+
+    @media @mobileLarge and @mobileLargeHeight {
+        padding: 0 16px 32px 14px;
+    }
+
+    @media @mobile and @mobileLargeHeight {
+        padding: 0 8px 30px;
+    }
+}
+
+.iconsWrapper {
+    display: flex;
+
+    align-items: flex-end;
+
+    gap: 32px;
+
+    margin-right: 20px;
+
+    & > div {
+        position: relative;
+
+        width: 32px;
+        height: 32px;
+
+        pointer-events: auto;
+
+        @media @desktop {
+
+            &:hover {
+
+                & > span {
+                    visibility: visible;
+                    z-index: 1;
+
+                    opacity: 1;
+
+                    transition: .5s ease-in-out;
+                }
+            }
+        }
+
+        @media @tablet {
+            position: unset;
+        }
+
+        & > span {
+            @media @mobile {
+                display: none;
+            }
+        }
+    }
+
+    @media @mobile {
+        position: fixed;
+        right: 10px;
+
+        bottom: 30px;
+
+        margin-right: 0;
+
+        gap: 20px;
+    }
+}
+
+.reload-icon {
+    display: none;
+
+    width: 21px;
+    height: 24px;
+
+    background: url('../../images/footer-icon/reload-icon.svg') 50% 50% no-repeat;
+
+    span {
+        .iconsWrapperTooltipMixin();
+
+        &:after {
+            content: 'Пройти еще раз';
+        }
+    }
+}
+
+.share-icon {
+    display: none;
+
+    width: 21px;
+    height: 24px;
+
+    background: url('../../images/footer-icon/share-icon.svg') 50% 50% no-repeat;
+
+    span {
+        .iconsWrapperTooltipMixin();
+
+        &:after {
+            content: 'Поделиться открыткой';
+        }
+    }
+}
+
+.sounds-icon {
+    width: 32px;
+    height: 32px;
+
+    background: url('../../images/footer-icon/sound_on.svg') 50% 50% no-repeat;
+
+    &.sounds-muted {
+        background: url('../../images/footer-icon/sound_muted.svg') 50% 50% no-repeat;
+
+        span {
+            .iconsWrapperTooltipMixin();
+
+            &:after {
+                content: 'Включить звук';
+            }
+        }
+    }
+
+    span {
+        .iconsWrapperTooltipMixin();
+
+        &:after {
+            content: 'Выключить звук';
+        }
+    }
+}

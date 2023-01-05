@@ -1,0 +1,76 @@
+.loader-container {
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: url('../../images/preloader_bg.svg') 50% 50% no-repeat;
+    background-size: cover;
+
+    @media @mobile {
+        background: url('../../images/preloader_bg_mobile.svg') 50% 50% no-repeat;
+
+        background-size: cover;
+    }
+}
+
+.loader-wrapper {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 100%;
+
+    height: 100%;
+}
+
+.loader {
+    width: 140px;
+    height: 140px;
+
+    border-radius: 50%;
+
+    background: linear-gradient(to right, @loader 10%, rgba(101, 171, 248, 0) 54%);
+
+    animation: load 1.4s infinite linear;
+
+    &:before {
+        content: '';
+
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        width: 50%;
+        height: 50%;
+
+        border-radius: 100% 0 0;
+        background: @loader;
+    }
+}
+
+.loader-shark {
+    position: absolute;
+
+    width: 132px;
+    height: 132px;
+
+    background: url('../../images/preloader_shark.png') 50% 50% no-repeat;
+    background-size: 100%;
+}
+
+@keyframes load {
+
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

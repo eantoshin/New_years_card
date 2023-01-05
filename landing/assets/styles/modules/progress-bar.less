@@ -1,0 +1,109 @@
+.progress-bar-container__title {
+    margin-bottom: 8px;
+}
+
+.progress-bar-title {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+
+    padding: 12px 24px;
+
+    border-radius: 24px;
+
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, .1875) 28.65%, rgba(255, 255, 255, .1875) 75.52%, rgba(255, 255, 255, 0) 100%);
+
+    color: #ffffff;
+    font-size: 24px;
+
+    font-weight: 600;
+    line-height: 19px;
+
+    // TODO: низкая поддержка в браузерах, поменять на blur
+    backdrop-filter: blur(44.5px);
+    // filter: blur(44.5px);
+
+    @media @mobile {
+        font-size: 16px;
+        line-height: 13px;
+    }
+}
+
+.progress-bar {
+    position: relative;
+
+    width: 100%;
+
+    padding: 4px;
+
+    border-radius: 30px;
+    background: #ffffff;
+
+    @media @mobile {
+        padding: 2px;
+    }
+}
+
+.progress-bar-background {
+    overflow: hidden;
+
+    border-radius: 24px;
+    background: linear-gradient(180deg, #ebebeb 0%, #e2e1e1 32.81%, #dadada 68.75%, #e2e1e1 83.33%, #ebebeb 100%);
+}
+
+.progress-line {
+    height: 24px;
+
+    border-radius: 24px 0 0 24px;
+
+    background: #ff4747 linear-gradient(
+        -45deg,
+        rgb(255, 255, 255) 25%,
+        transparent 25%,
+        transparent 50%,
+        rgba(255, 255, 255) 50%,
+        rgba(255, 255, 255) 75%,
+        transparent 75%,
+        transparent
+    );
+
+    background-size: 60px 60px;
+
+    transition: width .5s;
+
+    animation: spin 1s linear infinite;
+
+    @media @mobile {
+        height: 12px;
+    }
+}
+
+.progress-line__instantly {
+    transition: none;
+}
+
+.progress-line-tick {
+    position: absolute;
+    top: 4px;
+
+    width: 2px;
+    height: 24px;
+
+    background: #ffffff;
+
+    @media @mobile {
+        top: 2px;
+
+        height: 12px;
+    }
+}
+
+@keyframes spin {
+
+    100% {
+        background-position: -60px 0;
+    }
+}

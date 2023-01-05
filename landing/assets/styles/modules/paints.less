@@ -1,0 +1,25 @@
+.paints {
+    display: flex;
+
+    justify-content: space-between;
+
+    width: 100%;
+}
+
+.paint-bottle {
+    pointer-events: auto;
+
+    transition: all .4s;
+
+    @media @tablet {
+        height: 100px;
+    }
+
+    @media @mobile {
+        height: 50px;
+    }
+}
+
+.paint-bottle__selected {
+    transform: scale(1.3);
+}

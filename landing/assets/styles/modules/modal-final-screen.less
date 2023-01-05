@@ -1,0 +1,664 @@
+@headerHeight: 40px;
+
+#gingerbread {
+    display: none;
+
+    width: 168px;
+    height: 152px;
+
+    margin: 0 auto;
+
+    @media @desktop and (max-height: @minFinalModalHeight) {
+        height: 122px;
+    }
+
+    @media @mobileLarge and @mobileLargeHeight {
+        width: unset;
+        height: 400px;
+    }
+
+    @media @mobileSmall {
+        height: 200px;
+    }
+}
+
+#winnerImage {
+    display: none;
+
+    @media @mobileLarge and @mobileLargeHeight {
+        max-width: 600px;
+        height: 400px;
+        max-height: unset;
+    }
+
+    @media @mobileSmall and @mobileLargeHeight {
+        max-width: 300px;
+        height: 200px;
+    }
+}
+
+.base-share-size-mixin {
+    width: 56px;
+    height: 56px;
+
+    @media @desktop and (max-height: @minFinalModalHeight) {
+        width: 35px;
+        height: 35px;
+    }
+
+    @media @mobile {
+        width: 48px;
+        height: 48px;
+    }
+
+    @media @mobileLarge and @mobileLargeHeight {
+        width: 116px;
+        height: 116px;
+    }
+
+    @media @mobileSmall and @mobileLargeHeight {
+        width: 48px;
+        height: 48px;
+    }
+}
+
+.modal-final-screen {
+    display: none;
+
+    opacity: 0;
+
+    transition: opacity .6s linear;
+
+    &.show {
+        display: flex;
+
+        opacity: 1;
+    }
+}
+
+.modal-shadow {
+    position: fixed;
+
+    z-index: 1;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100vh;
+
+    background-color: @modalShadow;
+    opacity: .6;
+}
+
+.modal-wrapper {
+    display: flex;
+
+    visibility: hidden;
+    position: fixed;
+
+    z-index: 2;
+
+    top: 0;
+    left: 0;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 100vh;
+
+    padding: 10px 0;
+
+    @media @tablet {
+        padding: 0;
+    }
+
+    @media @mobile {
+        visibility: visible;
+        overflow: scroll;
+    }
+}
+
+@minFinalModalHeight: 684px;
+
+.modal {
+    display: flex;
+
+    visibility: visible;
+    position: relative;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    flex-direction: column;
+
+    width: 100%;
+
+    max-width: 558px;
+    height: 100%;
+
+    max-height: @minFinalModalHeight;
+
+    padding: 24px 48px 48px;
+
+    border-radius: 40px;
+
+    background: @modalBg;
+
+    @media @desktop and (max-height: @minFinalModalHeight) {
+        height: auto;
+
+        padding: 24px 48px 34px;
+    }
+
+    &:after {
+
+        content: '';
+
+        position: absolute;
+
+        z-index: -1;
+
+        bottom: 0;
+        left: -66px;
+
+        width: 690px;
+        height: 695px;
+
+        background: url('../../images/final-modal/gerland.svg') 50% 50% no-repeat;
+
+        @media @tablet {
+            display: none;
+        }
+    }
+
+    &:before {
+        content: '';
+
+        position: absolute;
+
+        top: -67px;
+        left: 0;
+
+        width: 100%;
+        height: 164px;
+
+        background: url('../../images/final-modal/gerland-tablet.svg') 50% 50% no-repeat;
+
+        @media @desktop {
+            display: none;
+        }
+
+        @media @mobile {
+            top: -55px;
+
+            background: url('../../images/final-modal/gerland-mobile.svg') 50% 50% no-repeat;
+
+            background-size: 100%;
+        }
+    }
+
+    @media @tablet {
+        overflow-y: scroll;
+
+        justify-content: unset;
+
+        max-width: 100%;
+        max-height: 100%;
+
+        padding: 92px 0;
+
+        border-radius: 0;
+    }
+
+    @media @mobile {
+        height: 100%;
+
+        padding: 40px 0 0;
+    }
+}
+
+.modal-header {
+    display: flex;
+
+    position: relative;
+
+    align-items: center;
+    justify-content: flex-end;
+
+    height: @headerHeight;
+
+    @media @tablet {
+        padding-right: 16px;
+    }
+
+    @media @tablet and (orientation: landscape) {
+        align-items: center;
+    }
+
+    @media @mobile {
+        justify-content: flex-start;
+
+        height: 70px;
+
+        padding-left: 16px;
+    }
+
+    &:before {
+
+        content: '';
+
+        position: absolute;
+
+        top: -25px;
+        left: -50px;
+
+        width: 558px;
+        height: 197px;
+
+        background: url('../../images/final-modal/stars.png') 50% 50% no-repeat;
+
+        @media @tablet {
+            left: 0;
+
+            width: 100%;
+            height: calc(100vh - (@headerHeight + 10px)); // 10px indent
+
+            background: url('../../images/final-modal/stars-mobile.png') 50% 50% no-repeat;
+        }
+
+        @media @mobile {
+            background-size: 100%;
+        }
+    }
+}
+
+.modal-content {
+    z-index: 9;
+
+    margin-top: -20px;
+
+    @media @tablet {
+        margin-top: 0;
+
+        text-align: center;
+    }
+
+    @media @mobile {
+        padding: 0 16px;
+
+        text-align: start;
+    }
+}
+
+.logo-dark {
+    z-index: 9;
+
+    width: 94px;
+    height: 38px;
+
+    background: url('../../images/main/logo.svg') 50% 50% no-repeat;
+
+    background-size: 94px;
+
+    @media @mobile {
+        right: 60px;
+    }
+
+    @media @mobileLarge and @mobileLargeHeight {
+        width: 131px;
+        height: 53px;
+
+        background-size: 100%;
+    }
+}
+
+.winning-option {
+    margin: 0 0 45px;
+
+    text-align: center;
+
+    @media @desktop and (max-height: @minFinalModalHeight) {
+        margin: 0 0 18px;
+    }
+
+    @media @mobile {
+        display: flex;
+
+        justify-content: center;
+
+        width: 100%;
+
+        margin: 0 0 20px;
+    }
+
+    @media @mobileLarge and @mobileLargeHeight {
+        margin: 140px 0 160px;
+
+        background-size: 100%;
+    }
+
+    @media @mobileSmall and @mobileLargeHeight {
+        margin: 0 0 20px;
+    }
+}
+
+.winnerImage {
+    width: 207px;
+    height: 150px;
+
+    margin: 0 auto;
+
+    @media @desktop and (max-height: @minFinalModalHeight) {
+        width: 195px;
+        height: 122px;
+    }
+
+    @media @mobile {
+        width: 100%;
+        max-width: 330px;
+        max-height: 220px;
+    }
+
+    @media @mobileSmall {
+        max-width: 300px;
+        max-height: 200px;
+    }
+}
+
+.santa-gif {
+    width: 40px;
+
+    @media @desktop and (max-height: @minFinalModalHeight) {
+        width: 30px;
+    }
+
+    @media @mobile {
+        width: 25px;
+    }
+
+    @media @mobileLarge and @mobileLargeHeight {
+        width: 40px;
+    }
+
+    @media @mobileSmall and @mobileLargeHeight {
+        width: 25px;
+    }
+}
+
+.modal-title {
+    width: 460px;
+
+    margin-bottom: 22px;
+
+    color: @white;
+    font-size: 36px;
+
+    font-weight: 800;
+
+    line-height: 80%;
+
+    @media @desktop and (max-height: @minFinalModalHeight) {
+        font-size: 32px;
+        line-height: 38px;
+    }
+
+    @media @tablet {
+        width: unset;
+
+        font-size: 28px;
+        letter-spacing: -.005em;
+        line-height: 34px;
+    }
+
+    @media @mobile {
+        margin-bottom: 15px;
+
+        font-size: 26px;
+    }
+
+    @media @mobileLarge and @mobileLargeHeight {
+        margin-bottom: 25px;
+
+        font-size: 54px;
+
+        line-height: 66px;
+    }
+
+    @media @mobileSmall and @mobileLargeHeight {
+        margin-bottom: 15px;
+
+        font-size: 26px;
+
+        line-height: 34px;
+    }
+}
+
+.modal-subtitle {
+    color: @white;
+    font-size: 20px;
+
+    font-weight: 400;
+
+    line-height: 24px;
+
+    @media @desktop and (max-height: @minFinalModalHeight) {
+        font-size: 18px;
+        line-height: 20px;
+    }
+
+    @media @mobile {
+        font-size: 16px;
+
+        letter-spacing: -.01em;
+        line-height: 19px;
+    }
+
+    @media @mobileLarge and @mobileLargeHeight {
+        font-size: 32px;
+
+        line-height: 39px;
+    }
+
+    @media @mobileSmall and @mobileLargeHeight {
+        font-size: 16px;
+
+        letter-spacing: -.01em;
+        line-height: 19px;
+    }
+}
+
+.modal-link {
+    color: #92c5ff;
+}
+
+.modal-footer {
+    display: flex;
+
+    z-index: 9;
+
+    flex-direction: column;
+
+    margin-top: 32px;
+
+    @media @desktop and (max-height: @minFinalModalHeight) {
+        margin-top: 30px;
+    }
+
+    @media @tablet {
+        align-items: center;
+    }
+
+    @media @mobile {
+        align-items: flex-start;
+
+        margin-top: 34px;
+        margin-bottom: 20px;
+
+        padding: 0 16px;
+    }
+
+    @media @mobileLarge and @mobileLargeHeight {
+        margin-top: 15%;
+    }
+
+    @media @mobileSmall and @mobileLargeHeight {
+        margin-top: 35%;
+    }
+}
+
+.share-buttons {
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-bottom: 32px;
+
+    @media @desktop and (max-height: @minFinalModalHeight) {
+        margin-bottom: 30px;
+    }
+
+    @media @desktop {
+
+        a,
+        div > {
+
+            &:hover {
+                filter: brightness(120%);
+
+                cursor: pointer;
+            }
+        }
+    }
+
+    a {
+        .base-share-size-mixin();
+
+        span {
+            display: block;
+
+            width: inherit;
+            height: inherit;
+        }
+    }
+
+    @media @tablet {
+        width: 50%;
+    }
+
+    @media @mobile {
+        display: flex;
+
+        justify-content: space-between;
+
+        width: 50%;
+
+        margin-bottom: 20px;
+    }
+
+    @media @mobileLarge and @mobileLargeHeight {
+        width: 100%;
+
+        margin-bottom: 80px;
+    }
+
+    @media @mobileSmall {
+        width: 100%;
+    }
+
+    @media @mobileSmall and @mobileLargeHeight {
+        margin-bottom: 20px;
+    }
+}
+
+.share-telegram {
+    .base-share-size-mixin();
+
+    img {
+        width: inherit;
+        height: inherit;
+    }
+}
+
+.share-vk {
+    .base-share-size-mixin();
+
+    img {
+        width: inherit;
+        height: inherit;
+    }
+}
+
+.share-ok {
+    .base-share-size-mixin();
+
+    img {
+        width: inherit;
+        height: inherit;
+    }
+}
+
+.share-mail {
+    .base-share-size-mixin();
+
+    background: url('../../images/share/mail.svg') 50% 50% no-repeat;
+    background-size: cover;
+
+    @media @mobile {
+        background-size: 48px;
+    }
+
+    @media @mobileLarge and @mobileLargeHeight {
+        background-size: 116px;
+    }
+
+    @media @mobileSmall and @mobileLargeHeight {
+        background-size: 48px;
+    }
+}
+
+.back-to-the-room {
+    width: 100%;
+    height: 60px;
+
+    border-radius: 4px;
+
+    background: @button;
+
+    color: @white;
+    font-size: 28px;
+
+    font-weight: 700;
+
+    line-height: 60px;
+
+    text-align: center;
+
+    @media @desktop {
+
+        &:hover {
+            background: @buttonHover;
+        }
+    }
+
+    @media @tablet {
+        width: 50%;
+    }
+
+    @media @mobile {
+        font-size: 20px;
+    }
+
+    @media @mobileLarge and @mobileLargeHeight {
+        width: 100%;
+
+        font-size: 28px;
+    }
+
+    @media @mobileSmall {
+        width: 100%;
+
+        font-size: 24px;
+    }
+}

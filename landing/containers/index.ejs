@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns#">
+<head>
+    <%- include ../layout/head.ejs -%>
+    <%- include ../layout/seo.ejs -%>
+    <script type="application/javascript">
+        window.pageKey = 'main';
+    </script>
+</head>
+<body style="background-image: linear-gradient(#5f555a, #3c1b2b); height: 100vh; overflow: hidden; margin: 0;">
+    <iframe src="<%= pageUrl %>?v=<%= (new Date).getTime(); %>" style="position: fixed; width: 100vw; height: 100%; top: 0; left: 0; overflow: hidden; border: 0; outline: 0; box-shadow: none;"></iframe>
+</body>
+</html>
