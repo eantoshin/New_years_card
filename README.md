@@ -1,7 +1,5 @@
 # Tiburon New Year 2023
 
-***
-
 # Interactive classes
 ```angular2html
 landing/assets/scripts/constants/interactive-elements.js
